@@ -7,8 +7,16 @@ describe('Testes da função getOpeningHours', () => {
     expect(getOpeningHours('thursday', '10:00-am')).toBe('The zoo is open');
   });
 
-  it('Testa se a função `getOpeningHours` é uma função', () => {
-    expect(typeof getOpeningHours).toBe('function');
+  it('Testa se a função `getOpeningHours` retorna o esperado quando não recebe parâmetro', () => {
+    const zooOperation = {
+      Tuesday: { open: 8, close: 6 },
+      Wednesday: { open: 8, close: 6 },
+      Thursday: { open: 10, close: 8 },
+      Friday: { open: 10, close: 8 },
+      Saturday: { open: 8, close: 10 },
+      Sunday: { open: 8, close: 8 },
+      Monday: { open: 0, close: 0 } };
+    expect(getOpeningHours()).toStrictEqual(zooOperation);
   });
 
   it('Testa se o parâmetro da função `getOpeningHours` não é Case Sensitive', () => {
